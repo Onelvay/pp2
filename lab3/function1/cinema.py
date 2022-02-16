@@ -13,15 +13,15 @@ def allmedium(movies):
         k+=1
     medium=float(medium)/k
     return medium
-def partmedium(movies):
+def partmedium(movies,l):
     medium=0
     k=0
     ans=[]
     for i in movies:
         if i['category']==l:
-            ans.append(i['name'])
+            ans.append(i['imdb'])
     for i in ans:
-        medium+=i['imdb']
+        medium+=i
         k+=1
     print(float(medium)/k)
 
@@ -135,3 +135,8 @@ if(checkimdb(movies,p)):
     print('True')
 else:
     print('False')
+
+print('средняя оценка вашего жанра')
+p=input()
+
+print(partmedium(movies, p))
