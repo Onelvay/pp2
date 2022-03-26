@@ -19,7 +19,7 @@ screen = pygame.display.set_mode((400, 300))
 done = False
 
 clock = pygame.time.Clock()
-
+check=False
 
 while not done:
         for event in pygame.event.get():
@@ -37,10 +37,10 @@ while not done:
                             pygame.mixer.music.load('C:\\pp2\\lab7\\sounds\\'+memory[index])
                             pygame.mixer.music.play(0)
                     if event.key == pygame.K_SPACE:
-                        pygame.mixer.music.stop()
-        
-        screen.fill((255, 255, 255)) 
-
-        pygame.display.flip()
-        clock.tick(60)
+                 
+                        pygame.mixer.music.pause()
+                    if  event.key == pygame.K_TAB:
+                      
+                        pygame.mixer.music.unpause()
+                        
 pygame.exit()
