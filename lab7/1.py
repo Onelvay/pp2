@@ -37,8 +37,7 @@ w,h=hand.get_size()
 k,l=sec_hand.get_size()
 pos = ((screen.get_width()/2), (screen.get_height()/2)-5)
 sec_angle=0
-print(now_minute)
-print(now_sec)
+
 black=(0,0,0)
 count_min=0
 while working:
