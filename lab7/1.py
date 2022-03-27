@@ -50,7 +50,7 @@ while working:
     blitRotate(screen, sec_hand, pos, (k/2, l/2), sec_angle)
     pygame.draw.circle(screen,black,((screen.get_width()/2), (screen.get_height()/2)-13),16)
     if count_sec==0:
-        angle-=((3*now_sec*1.2)+10)
+        angle-=((5*now_sec*1.2)-54)
         count_sec+=1
     else:
         angle -= 1.2
