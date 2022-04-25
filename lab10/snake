@@ -125,10 +125,14 @@ while working:
 
     screen.blit(bg,(0,0)) #рисуем задний фон
 
-    if snake[-1] in walls[level]:
+    if snake[-1] in walls[level]: # если координаты головы есть в координатах стен то игра останавливается
+        total_score+=count
+        count=0
         sql_update_query = """Update snake_game set score = %s where name_ = %s"""
         cursor.execute(sql_update_query, (count, account))
-        conn.commit() # если координаты головы есть в координатах стен то игра останавливается
+        conn.commit()
+        
+        total_score+=count
         working=False
 
     if apple in walls[level]:#нужна для проверки если яблоко появилось внутри стен
@@ -176,6 +180,8 @@ while working:
 
     if x<0 or x> mon-size or y<0 or y >mon-size or len(snake) != len(set(snake)):
         #выход за пределы поля или змейка входит в себя
+        total_score+=count
+        count=0
         sql_update_query = """Update snake_game set score = %s where name_ = %s"""
         cursor.execute(sql_update_query, (count, account))
         conn.commit()
@@ -192,3 +198,4 @@ conn.commit()
 print('Игра завершена!')
 cursor.close()
 conn.close()
+
